@@ -1,0 +1,183 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 28, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    //"modules-left": ["cpu", "memory","disk", "hyprland/language"],
+    "modules-left": ["wlr/workspaces", "group/browser-app"],
+    "modules-center": [ "clock"],
+    "modules-right": [ "tray", "hyprland/language", "memory", "cpu", "network", "pulseaudio", "custom/pmanu"],
+
+    // Modules configuration
+
+    // Workspaces widget
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "active-only": false,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "persistent_workspaces": {
+          "1":[],
+          "2":[],
+          "3":[],
+          "4":[],
+          "5":[]
+        },
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
+    },
+
+    // Keyboard language widget
+    "hyprland/language": {
+    "format": "  {}",
+    "tooltip": false
+    },
+
+    // keyboard state widget
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+
+    // system tray widget
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        "tooltip": false,
+        "show-passive-items": true
+    },
+
+   // Time widget
+    "clock": {
+        // "timezone": "Aisa/Dhaka",
+        "format": "{:  %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
+    // cpu usage widget
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": false
+    },
+
+    // memeory usage widget
+    "memory": {
+        "format": "<span size='large'>󰍛</span>  {percentage}%",
+        "tooltip": false
+    },
+
+    // Storage usage widget
+    "disk": {
+    "interval": 30,
+    "format": "  {used}/{total}",
+    "path": "/",
+    "tooltip": false
+    },
+
+    // net speed widget
+    "network": {
+        "interval": 1,
+        "format-ethernet": "  {bandwidthTotalBytes}",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "  {bandwidthTotalBytes}",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip": false
+    },
+
+    // volume control widget
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": false
+
+    },
+
+    // power manu widget
+    "custom/pmanu": {
+      "format": "",
+      "on-click": "~/.config/scripts/powermanu.sh",
+      "tooltip": false
+    },
+    
+    // Group browser application
+    "group/browser-app": {
+      "orientation": "horizontal",
+		  "modules": [ 
+        "custom/reddit", 
+        "custom/chatgpt", 
+        "custom/facebook", 
+        "custom/chess", 
+        "custom/youtube"
+		  ]
+    },
+    
+    // Reddit
+    "custom/reddit": {
+      "format": "<span size='large'></span>",
+      "on-click": "google-chrome-stable --app=https://www.reddit.com/",
+      "tooltip": false
+    },
+    
+    // chatgpt
+    "custom/chatgpt": {
+      "format": "<span size='large'></span>",
+      "on-click": "google-chrome-stable --app=https://chat.openai.com/",
+      "tooltip": false
+    },
+    
+    // facebook
+    "custom/facebook": {
+      "format": "<span size='x-large'></span>",
+      "on-click": "google-chrome-stable --app=https://www.facebook.com/",
+      "tooltip": false
+    },
+    
+    // chess
+    "custom/chess": {
+      "format": "<span size='large'></span>",
+      "on-click": "google-chrome-stable --app=https://lichess.org/",
+      "tooltip": false
+    }, 
+    
+    // Youtube
+    "custom/youtube": {
+      "format": "<span size='large'></span>",
+      "on-click": "google-chrome-stable --app=https://www.youtube.com/",
+      "tooltip": false
+    },
+
+}
+
